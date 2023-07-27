@@ -8,7 +8,7 @@ import {
 const roundToTwoDecimals = (value: number): number =>
   parseFloat(value.toFixed(2));
 
-class Macro {
+export class Macro {
   public static getMacro({
     db,
     code,
@@ -114,18 +114,3 @@ class Macro {
     };
   }
 }
-
-console.table(
-  Macro.getAggregateMacro({
-    db,
-    ingredients: [
-      { code: 6, weight: 1000 },
-      { code: 5, weight: 1030 },
-      { code: 4, weight: 336 },
-      { code: 3, weight: 20 },
-      { code: 2, weight: 620 },
-      { code: 1, weight: 960 },
-    ],
-    finalWeight: 2735,
-  }),
-);

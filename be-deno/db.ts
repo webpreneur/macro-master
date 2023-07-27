@@ -43,6 +43,20 @@ const encodedMacroNutrients: EncodedMacroNutrients = {
     carbohydrates: { total: 0.3, sugar: 0.1 },
     salt: 0.5,
   }],
+  7: ["Dió", {
+    energy: 654,
+    protein: 15.2,
+    fats: { total: 62.5, saturated: 6.1 },
+    carbohydrates: { total: 6.7, sugar: 2.6 },
+    salt: 0,
+  }],
+  8: ["Fitness mix friss salátakeverék", {
+    energy: 23,
+    protein: 1.6,
+    fats: { total: 0.3, saturated: 0.1 },
+    carbohydrates: { total: 2.9, sugar: 1.3 },
+    salt: 0.07,
+  }],
 };
 
 export default encodedMacroNutrients;

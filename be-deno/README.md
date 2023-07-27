@@ -1,6 +1,14 @@
 # Run
 
-`deno run recipe.ts`
+`denon start`
+
+## Cors
+
+[cors docs](https://github.com/tajpouria/cors)
+
+## Denon
+
+[denon docs](https://github.com/denosaurs/denon)
 
 # APIS
 

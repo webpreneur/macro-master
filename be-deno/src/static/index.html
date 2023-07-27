@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ingredients Form</title>
+    <link rel="stylesheet" href="./styles.css">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        #ingredientsForm {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 80%;
+            max-width: 500px;
+        }
+
+        h3 {
+            margin-top: 0;
+            color: #333;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 10px;
+            color: #555;
+        }
+
+        input[type="number"] {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 16px;
+        }
+
+        .ingredient {
+            border: 1px solid #e0e0e0;
+            padding: 10px;
+            margin-bottom: 10px;
+            border-radius: 4px;
+        }
+
+        button {
+            background-color: #007BFF;
+            color: #fff;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        button[type="submit"] {
+            width: 100%;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <form id="ingredientsForm">
+        <h3>Ingredients</h3>
+        <div id="ingredientsList">
+            <!-- Példa egy input mezőre -->
+            <div class="ingredient">
+                <label>Code: <input type="number" name="code" required></label>
+                <label>Weight: <input type="number" name="weight" required></label>
+            </div>
+        </div>
+        <button type="button" onclick="addIngredient()">Add another ingredient</button>
+        <br><br>
+        <label>Final Weight: <input type="number" name="finalWeight" required></label>
+        <br><br>
+        <button type="submit">Submit</button>
+    </form>
+
+    <script>
+        function addIngredient() {
+            const ingredientsList = document.getElementById('ingredientsList');
+            const ingredientDiv = document.createElement('div');
+            ingredientDiv.className = 'ingredient';
+            ingredientDiv.innerHTML = `
+            <label>Code: <input type="number" name="code" required></label>
+            <label>Weight: <input type="number" name="weight" required></label>
+        `;
+            ingredientsList.appendChild(ingredientDiv);
+        }
+
+        document.getElementById('ingredientsForm').addEventListener('submit', function (event) {
+            event.preventDefault();
+
+            const ingredients = [];
+            const ingredientDivs = document.querySelectorAll('.ingredient');
+            for (const div of ingredientDivs) {
+                const code = div.querySelector('input[name="code"]').value;
+                const weight = div.querySelector('input[name="weight"]').value;
+                ingredients.push({ code: parseInt(code), weight: parseInt(weight) });
+            }
+
+            const finalWeight = parseInt(this.querySelector('input[name="finalWeight"]').value);
+
+            const data = {
+                ingredients: ingredients,
+                finalWeight: finalWeight
+            };
+
+            fetch('/calculate', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(data)
+            })
+                .then(response => response.json())
+                .then(data => {
+                    console.log(data);
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                });
+        });
+    </script>
+
+</body>
+
+</html>
