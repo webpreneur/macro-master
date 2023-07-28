@@ -1,26 +1,16 @@
 export interface AbridgedFoodNutrient {
-  /**
-   * Example: 303
-   */
-  number: number;
-  /**
-   * Example: Iron, Fe
-   */
-  name: string;
-  /**
-   * Example: 0.53
-   */
-  amount: number;
-  /**
-   * Example: mg
-   */
+  nutrientId: number;
+  nutrientName: string;
+  nutrientNumber: string;
   unitName: string;
-  /**
-   * Example: LCCD
-   */
   derivationCode: string;
-  /**
-   * Example: Calculated from a daily value percentage per serving size measure
-   */
   derivationDescription: string;
+  derivationId: number;
+  value: number;
+  foodNutrientSourceId: number;
+  foodNutrientSourceCode: string;
+  foodNutrientSourceDescription: string;
+  rank: number;
+  indentLevel: number;
+  foodNutrientId: number;
 }

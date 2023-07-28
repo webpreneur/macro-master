@@ -1,4 +1,5 @@
 import { DataType } from "./data-type.ts";
+import { SortBy } from "./sort-by.ts";
 
 export interface FoodSearchCriteria {
   /** Search terms to use in the search. The string may also include standard [search operators](https://fdc.nal.usda.gov/help.html#bkmk-2)
@@ -19,7 +20,7 @@ export interface FoodSearchCriteria {
   pageNumber: number;
   /** Optional. Specify one of the possible values to sort by that field. Note, dataType.keyword will be dataType and description.keyword will be description in future releases.
    */
-  sortBy: string;
+  sortBy: SortBy;
   /** Optional. The sort direction for the results. Only applicable if sortBy is specified.
    */
   sortOrder: string;

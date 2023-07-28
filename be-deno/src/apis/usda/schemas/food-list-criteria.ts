@@ -1,4 +1,5 @@
 import { DataType } from "./data-type.ts";
+import { SortBy } from "./sort-by.ts";
 
 export interface FoodListCriteria {
   /** Optional. Filter on a specific data type; specify one or more values in an array.
@@ -15,7 +16,7 @@ export interface FoodListCriteria {
   pageNumber: number;
   /** Optional. Specify one of the possible values to sort by that field. Note, dataType.keyword will be dataType and lowercaseDescription.keyword will be description in future releases.
    */
-  sortBy: string;
+  sortBy: SortBy;
   /** Optional. The sort direction for the results. Only applicable if sortBy is specified.
    */
   sortOrder: string;

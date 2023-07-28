@@ -52,3 +52,5 @@ export interface SearchResultFood {
    */
   score: number;
 }
+
+export type KeysOfSearchResultFood = keyof SearchResultFood;
