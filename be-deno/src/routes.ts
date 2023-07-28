@@ -13,6 +13,12 @@ router
       index: "index.html",
     });
   })
+  .get("/search", async (context) => {
+    await send(context, context.request.url.pathname, {
+      root: `${Deno.cwd()}/src/static`,
+      index: "search.html",
+    });
+  })
   .get("/food/:query", searchFood)
   .post("/calculate", async (context) => {
     const body = await context.request.body();

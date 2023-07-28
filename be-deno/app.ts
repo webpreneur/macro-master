@@ -76,6 +76,10 @@ export class Macro {
       }
     });
 
+    if (finalWeight && totalWeight > finalWeight) {
+      throw new Error("The total weight of the ingredients cannot be greater than the final weight!");
+    }
+
     const macroPer100gRaw: MacroNutrient = {
       energy: roundToTwoDecimals(totalEnergy / (totalWeight / 100)),
       protein: roundToTwoDecimals(totalProtein / (totalWeight / 100)),
