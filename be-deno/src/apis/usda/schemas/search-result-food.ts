@@ -51,6 +51,7 @@ export interface SearchResultFood {
   /** Relative score indicating how well the food matches the search criteria.
    */
   score: number;
+  labelNutrients?: object;
 }
 
 export type KeysOfSearchResultFood = keyof SearchResultFood;

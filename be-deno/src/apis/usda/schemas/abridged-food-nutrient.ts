@@ -1,8 +1,10 @@
+import { UnitName } from "./unit-name.ts";
+
 export interface AbridgedFoodNutrient {
   nutrientId: number;
   nutrientName: string;
   nutrientNumber: string;
-  unitName: string;
+  unitName: UnitName;
   derivationCode: string;
   derivationDescription: string;
   derivationId: number;

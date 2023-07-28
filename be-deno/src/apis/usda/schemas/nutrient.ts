@@ -1,3 +1,5 @@
+import { UnitName } from "./unit-name.ts";
+
 export interface Nutrient {
   /**
    * Example: 1005
@@ -18,5 +20,5 @@ export interface Nutrient {
   /**
    * Example: g
    */
-  unitName: string;
+  unitName: UnitName;
 }
