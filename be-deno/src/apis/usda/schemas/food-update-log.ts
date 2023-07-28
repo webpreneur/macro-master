@@ -1,3 +1,4 @@
+import { DataType } from "./data-type.ts";
 import { FoodAttribute } from "./food-attribute.ts";
 
 export interface FoodUpdateLog {
@@ -20,7 +21,7 @@ export interface FoodUpdateLog {
   /**
    * Example: Branded
    */
-  dataType: string;
+  dataType: DataType;
   /**
    * Example: NUT 'N BERRY MIX
    */

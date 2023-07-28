@@ -1,8 +1,10 @@
+import { DataType } from "./data-type.ts";
+
 export interface FoodListCriteria {
   /** Optional. Filter on a specific data type; specify one or more values in an array.
    * Example: ['Foundation', 'SR Legacy']
    */
-  dataType: string[];
+  dataType: DataType[];
   /** Optional. Maximum number of results to return for the current page. Default is 50.
    * Example: 25
    */

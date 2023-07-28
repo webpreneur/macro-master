@@ -1,10 +1,11 @@
 import { AbridgedFoodNutrient } from "./abridged-food-nutrient.ts";
+import { DataType } from "./data-type.ts";
 
 export interface AbridgedFoodItem {
   /**
    * Example: Branded
    */
-  dataType: string;
+  dataType: DataType;
   /**
    * Example: NUT 'N BERRY MIX
    */

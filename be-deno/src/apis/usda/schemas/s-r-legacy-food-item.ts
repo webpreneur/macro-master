@@ -1,3 +1,4 @@
+import { DataType } from "./data-type.ts";
 import { FoodCategory } from "./food-category.ts";
 import { FoodNutrient } from "./food-nutrient.ts";
 import { NutrientConversionFactors } from "./nutrient-conversion-factors.ts";
@@ -10,7 +11,7 @@ export interface SRLegacyFoodItem {
   /**
    * Example: SR Legacy
    */
-  dataType: string;
+  dataType: DataType;
   /**
    * Example: Broccoli, raw
    */

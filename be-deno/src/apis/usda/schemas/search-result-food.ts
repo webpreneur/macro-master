@@ -1,4 +1,5 @@
 import { AbridgedFoodNutrient } from "./abridged-food-nutrient.ts";
+import { DataType } from "./data-type.ts";
 
 export interface SearchResultFood {
   /** Unique ID of the food.
@@ -8,7 +9,7 @@ export interface SearchResultFood {
   /** The type of the food data.
    * Example: Branded
    */
-  dataType: string;
+  dataType: DataType;
   /** The description of the food.
    * Example: BROCCOLI
    */

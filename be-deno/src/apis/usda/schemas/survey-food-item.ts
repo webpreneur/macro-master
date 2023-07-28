@@ -1,3 +1,4 @@
+import { DataType } from "./data-type.ts";
 import { FoodAttribute } from "./food-attribute.ts";
 import { FoodPortion } from "./food-portion.ts";
 import { InputFoodSurvey } from "./input-food-survey.ts";
@@ -11,7 +12,7 @@ export interface SurveyFoodItem {
   /**
    * Example: Survey (FNDDS)
    */
-  datatype: string;
+  datatype: DataType;
   /**
    * Example: Beef curry
    */

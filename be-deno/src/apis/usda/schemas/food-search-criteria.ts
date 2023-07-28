@@ -1,3 +1,5 @@
+import { DataType } from "./data-type.ts";
+
 export interface FoodSearchCriteria {
   /** Search terms to use in the search. The string may also include standard [search operators](https://fdc.nal.usda.gov/help.html#bkmk-2)
    * Example: Cheddar cheese
@@ -6,7 +8,7 @@ export interface FoodSearchCriteria {
   /** Optional. Filter on a specific data type; specify one or more values in an array.
    * Example: ['Foundation', 'SR Legacy']
    */
-  dataType: string[];
+  dataType: DataType[];
   /** Optional. Maximum number of results to return for the current page. Default is 50.
    * Example: 25
    */

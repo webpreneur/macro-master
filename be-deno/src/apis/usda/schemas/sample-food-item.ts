@@ -1,3 +1,4 @@
+import { DataType } from "./data-type.ts";
 import { FoodCategory } from "./food-category.ts";
 
 export interface SampleFoodItem {
@@ -8,7 +9,7 @@ export interface SampleFoodItem {
   /**
    * Example: Sample
    */
-  datatype: string;
+  datatype: DataType;
   /**
    * Example: Beef, Tenderloin Roast, select, roasted, comp5, lean (34BLTR)
    */
