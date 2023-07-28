@@ -1,4 +1,4 @@
-import { Router, send } from "https://deno.land/x/oak/mod.ts";
+import { Router, send } from "https://deno.land/x/oak@v12.6.0/mod.ts";
 import { Macro } from "./app.ts";
 import db from "./db.ts";
 import { searchFood } from "./src/apis/macro-master/macro-master.api.ts";
@@ -8,11 +8,8 @@ import { MacroNutrientInput } from "./types.ts";
 const router = new Router();
 
 router
-  .get("/", async (context) => {
-    await send(context, context.request.url.pathname, {
-      root: `${Deno.cwd()}/static`,
-      index: "index.html",
-    });
+  .get("/", (context) => {
+    context.response.body = "Hello world!";
   })
   .get("/search", async (context) => {
     await send(context, context.request.url.pathname, {
