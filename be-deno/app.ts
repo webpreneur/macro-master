@@ -1,10 +1,12 @@
-import db from "./db.ts";
 import calculateCalories from "./src/apis/usda/utils/get-label-nutrients.ts";
 import {
   EncodedMacroNutrients,
   MacroNutrient,
   MacroNutrientInput,
 } from "./types.ts";
+
+const DEFAULT_LOSS = 20;
+
 
 const roundToTwoDecimals = (value: number): number =>
   parseFloat(value.toFixed(2));
@@ -50,9 +52,12 @@ export class Macro {
     ingredients: MacroNutrientInput[];
     finalWeight?: number;
   }): {
-    macroPer100gCooked?: MacroNutrient;
-    macroPer100gRaw?: MacroNutrient;
+    macroPer100gRaw: MacroNutrient;
+    macroPer100gCooked: MacroNutrient;
   } {
+
+
+
     let totalWeight = 0;
     let totalEnergy = 0;
     let totalProtein = 0;
@@ -78,12 +83,32 @@ export class Macro {
       }
     });
 
+    if (!finalWeight) {
+      finalWeight = totalWeight - (DEFAULT_LOSS * totalWeight) / 100;
+      console.log(
+        `Final weight was not provided. Calculating with ${DEFAULT_LOSS}% loss.`,
+      );
+    }
+
     console.log(`Total weight of all ingredients: ${totalWeight}g`);
+
+    if (finalWeight) {
+      console.log(`Final weight of the cooked meal: ${finalWeight}g`);
+      const loss = totalWeight - finalWeight;
+      const lossPercentage = (loss / totalWeight) * 100;
+      console.log(
+        `Weight loss during cooking: ${loss.toFixed(2)}g (${lossPercentage.toFixed(2)}%)`,
+      );
+    }
     console.log(`---`);
 
     ingredients.forEach(({ code, weight }) => {
       const percentage = ((weight / totalWeight) * 100).toFixed(2);
-      console.log(`Ingredient of ${db[code][0]} contributed ${weight}g, which is ${percentage}% of the total.`);
+      console.log(
+        `Ingredient of ${
+          db[code][0]
+        } contributed ${weight}g, which is ${percentage}% of the total.`,
+      );
     });
 
     if (finalWeight && finalWeight > totalWeight) {
@@ -111,46 +136,41 @@ export class Macro {
       protein: macroPer100gRaw.protein,
       fat: macroPer100gRaw.fats.total,
     });
-    
+
     const tolerance = 0.10 * macroPer100gRaw.energy;
     const lowerBound = macroPer100gRaw.energy - tolerance;
     const upperBound = macroPer100gRaw.energy + tolerance;
-    
+
     if (calculatedCalories < lowerBound || calculatedCalories > upperBound) {
       console.warn(
-        `The calculated calories (${calculatedCalories}) deviate by more than 10% from the provided energy (${macroPer100gRaw.energy})!`,
+        `The calculated calories (${calculatedCalories}) of the raw food deviate by more than 10% from the provided energy (${macroPer100gRaw.energy})!`,
       );
     } else {
-      console.info('---')
+      console.info("---");
       console.info(
-        `The calculated calories (${calculatedCalories}) deviate by less than 10% from the provided energy (${macroPer100gRaw.energy})!`,
+        `The calculated calories (${calculatedCalories}) of the raw food deviate by less than 10% from the provided energy (${macroPer100gRaw.energy})!`,
       );
     }
 
-    let macroPer100gCooked;
-    if (finalWeight) {
-      macroPer100gCooked = {
-        energy: roundToTwoDecimals((totalEnergy / finalWeight) * 100),
-        protein: roundToTwoDecimals((totalProtein / finalWeight) * 100),
-        fats: {
-          total: roundToTwoDecimals((totalFat / finalWeight) * 100),
-          saturated: roundToTwoDecimals(
-            (totalSaturatedFat / finalWeight) * 100,
-          ),
-        },
-        carbohydrates: {
-          total: roundToTwoDecimals((totalCarbohydrate / finalWeight) * 100),
-          sugar: roundToTwoDecimals((totalSugar / finalWeight) * 100),
-        },
-        salt: roundToTwoDecimals((totalSalt / finalWeight) * 100),
-      };
-    } else {
-      console.warn("No final weight provided, returning only raw data");
-    }
-    
+    const macroPer100gCooked: MacroNutrient = {
+      energy: roundToTwoDecimals((totalEnergy / finalWeight) * 100),
+      protein: roundToTwoDecimals((totalProtein / finalWeight) * 100),
+      fats: {
+        total: roundToTwoDecimals((totalFat / finalWeight) * 100),
+        saturated: roundToTwoDecimals(
+          (totalSaturatedFat / finalWeight) * 100,
+        ),
+      },
+      carbohydrates: {
+        total: roundToTwoDecimals((totalCarbohydrate / finalWeight) * 100),
+        sugar: roundToTwoDecimals((totalSugar / finalWeight) * 100),
+      },
+      salt: roundToTwoDecimals((totalSalt / finalWeight) * 100),
+    };
+
     return {
-      macroPer100gCooked: finalWeight ? macroPer100gCooked : undefined,
-      macroPer100gRaw: finalWeight ? undefined : macroPer100gRaw,
+      macroPer100gCooked,
+      macroPer100gRaw,
     };
   }
 }

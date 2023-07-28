@@ -86,6 +86,5 @@ console.table(
         weight: 515,
       }
     ],
-    finalWeight: 2659,
   })
 );
