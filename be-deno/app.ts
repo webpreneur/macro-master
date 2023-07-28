@@ -1,4 +1,5 @@
 import db from "./db.ts";
+import calculateCalories from "./src/apis/usda/utils/get-label-nutrients.ts";
 import {
   EncodedMacroNutrients,
   MacroNutrient,
@@ -50,6 +51,7 @@ export class Macro {
     finalWeight?: number;
   }): {
     macroPer100gCooked?: MacroNutrient;
+    macroPer100gRaw?: MacroNutrient;
   } {
     let totalWeight = 0;
     let totalEnergy = 0;
@@ -76,8 +78,18 @@ export class Macro {
       }
     });
 
-    if (finalWeight && totalWeight > finalWeight) {
-      throw new Error("The total weight of the ingredients cannot be greater than the final weight!");
+    console.log(`Total weight of all ingredients: ${totalWeight}g`);
+    console.log(`---`);
+
+    ingredients.forEach(({ code, weight }) => {
+      const percentage = ((weight / totalWeight) * 100).toFixed(2);
+      console.log(`Ingredient of ${db[code][0]} contributed ${weight}g, which is ${percentage}% of the total.`);
+    });
+
+    if (finalWeight && finalWeight > totalWeight) {
+      throw new Error(
+        "The total weight of the ingredients cannot be greater than the final weight!",
+      );
     }
 
     const macroPer100gRaw: MacroNutrient = {
@@ -93,6 +105,27 @@ export class Macro {
       },
       salt: roundToTwoDecimals(totalSalt / (totalWeight / 100)),
     };
+
+    const calculatedCalories = calculateCalories({
+      carbs: macroPer100gRaw.carbohydrates.total,
+      protein: macroPer100gRaw.protein,
+      fat: macroPer100gRaw.fats.total,
+    });
+    
+    const tolerance = 0.10 * macroPer100gRaw.energy;
+    const lowerBound = macroPer100gRaw.energy - tolerance;
+    const upperBound = macroPer100gRaw.energy + tolerance;
+    
+    if (calculatedCalories < lowerBound || calculatedCalories > upperBound) {
+      console.warn(
+        `The calculated calories (${calculatedCalories}) deviate by more than 10% from the provided energy (${macroPer100gRaw.energy})!`,
+      );
+    } else {
+      console.info('---')
+      console.info(
+        `The calculated calories (${calculatedCalories}) deviate by less than 10% from the provided energy (${macroPer100gRaw.energy})!`,
+      );
+    }
 
     let macroPer100gCooked;
     if (finalWeight) {
@@ -111,10 +144,13 @@ export class Macro {
         },
         salt: roundToTwoDecimals((totalSalt / finalWeight) * 100),
       };
+    } else {
+      console.warn("No final weight provided, returning only raw data");
     }
-
+    
     return {
-      macroPer100gCooked,
+      macroPer100gCooked: finalWeight ? macroPer100gCooked : undefined,
+      macroPer100gRaw: finalWeight ? undefined : macroPer100gRaw,
     };
   }
 }

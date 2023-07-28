@@ -50,6 +50,21 @@ console.table(
         code: 10,
         weight: 487,
       },
+      // lila répa
+      {
+        code: 9,
+        weight: 241,
+      },
+      // cukkini
+      {
+        code: 14,
+        weight: 325,
+      },
+      // karalábé
+      {
+        code: 1,
+        weight: 258,
+      },
       // comb
       {
         code: 13,
@@ -71,6 +86,6 @@ console.table(
         weight: 515,
       }
     ],
-    finalWeight: 0,
+    finalWeight: 2659,
   })
 );
