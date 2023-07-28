@@ -1,8 +1,9 @@
 import { Router, send } from "https://deno.land/x/oak/mod.ts";
-import { searchFood } from "./apis/macro-master/macro-master.api.ts";
-import { MacroNutrientInput } from "../types.ts";
-import { Macro } from "../app.ts";
-import db from "../db.ts";
+import { Macro } from "./app.ts";
+import db from "./db.ts";
+import { searchFood } from "./src/apis/macro-master/macro-master.api.ts";
+import { MacroNutrientInput } from "./types.ts";
+
 
 const router = new Router();
 
