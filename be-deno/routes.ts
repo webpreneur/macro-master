@@ -10,13 +10,13 @@ const router = new Router();
 router
   .get("/", async (context) => {
     await send(context, context.request.url.pathname, {
-      root: `${Deno.cwd()}/src/static`,
+      root: `${Deno.cwd()}/static`,
       index: "index.html",
     });
   })
   .get("/search", async (context) => {
     await send(context, context.request.url.pathname, {
-      root: `${Deno.cwd()}/src/static`,
+      root: `${Deno.cwd()}/static`,
       index: "search.html",
     });
   })
