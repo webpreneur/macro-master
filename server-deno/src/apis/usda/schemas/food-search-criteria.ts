@@ -40,4 +40,5 @@ export interface FoodSearchCriteria {
    * Example: 2021-12-30
    */
   endDate: string;
+  requireAllWords?: boolean;
 }
