@@ -1,7 +1,7 @@
-import { load } from "https://deno.land/std@0.196.0/dotenv/mod.ts";
+import { load } from "./deps.ts";
 
-const config = await load();
+const config = await load({
+  export: true,
+});
 
 export default config;
-
-// export const APP_PORT = Number(Deno.env.get('APP_PORT'));

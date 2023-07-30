@@ -3,9 +3,10 @@ import { SearchResult } from "../schemas/search-result.ts";
 
 import config from "../../../config.ts";
 
+const { USDA_API_KEY: API_KEY } = config;
+
 const postFoodsSearch = async (payload: Partial<FoodSearchCriteria>): Promise<SearchResult> => {
   const API_ENDPOINT = "https://api.nal.usda.gov/fdc/v1/foods/search";
-  const API_KEY = config.USDA_API_KEY;
 
   if (!API_KEY) {
     throw new Error("USDA API key is missing");

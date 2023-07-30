@@ -1,15 +1,14 @@
-import { Application } from "https://deno.land/x/oak@v12.6.0/mod.ts";
-import { oakCors } from "https://deno.land/x/cors@v1.2.2/mod.ts";
+import { Application, oakCors } from "./deps.ts";
 
 import config from "./config.ts";
-
 import router from "./routes/routes.ts";
+
+// Importing pool to initialize it on server start
+import _pool from "./integrations/supabase/pool.ts";
 
 const { APP_PORT } = config;
 
 const port = APP_PORT ? Number(APP_PORT) : 8280;
-
-console.log(APP_PORT)
 
 const app = new Application();
 

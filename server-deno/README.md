@@ -6,6 +6,10 @@
 
 Deno libs used in this project:
 
+## deno-postgres
+
+[deno-postgres.com](https://deno-postgres.com/#/)
+
 ## Cors
 
 [cors docs](https://github.com/tajpouria/cors)
