@@ -1,3 +1,4 @@
+import logNutritionTable from "./macro-calculator/log-nutrition-table.ts";
 import calculateCalories from "./src/apis/usda/utils/get-label-nutrients.ts";
 import {
   EncodedMacroNutrients,
@@ -56,79 +57,74 @@ export class Macro {
     macroPer100gCooked: MacroNutrient;
   } {
 
-
-
-    let totalWeight = 0;
-    let totalEnergy = 0;
-    let totalProtein = 0;
-    let totalFat = 0;
-    let totalSaturatedFat = 0;
-    let totalCarbohydrate = 0;
-    let totalSugar = 0;
-    let totalSalt = 0;
+    let totalWeightOfIngredients = 0;
+    let totalEnergyOfIngredients = 0;
+    let totalProteinOfIngredients = 0;
+    let totalFatOfIngredients = 0;
+    let totalSaturatedFatOfIngredients = 0;
+    let totalCarbohydrateOfIngredients = 0;
+    let totalSugarOfIngredients = 0;
+    let totalSaltOfIngredients = 0;
 
     ingredients.forEach(({ code, weight }) => {
       const nutrient = db[code];
       if (nutrient) {
         const [, nutrientData] = nutrient;
 
-        totalWeight += weight;
-        totalEnergy += (nutrientData.energy * weight) / 100;
-        totalProtein += (nutrientData.protein * weight) / 100;
-        totalFat += (nutrientData.fats.total * weight) / 100;
-        totalSaturatedFat += (nutrientData.fats.saturated * weight) / 100;
-        totalCarbohydrate += (nutrientData.carbohydrates.total * weight) / 100;
-        totalSugar += (nutrientData.carbohydrates.sugar * weight) / 100;
-        totalSalt += (nutrientData.salt * weight) / 100;
+        totalWeightOfIngredients += weight;
+        totalEnergyOfIngredients += (nutrientData.energy * weight) / 100;
+        totalProteinOfIngredients += (nutrientData.protein * weight) / 100;
+        totalFatOfIngredients += (nutrientData.fats.total * weight) / 100;
+        totalSaturatedFatOfIngredients += (nutrientData.fats.saturated * weight) / 100;
+        totalCarbohydrateOfIngredients += (nutrientData.carbohydrates.total * weight) / 100;
+        totalSugarOfIngredients += (nutrientData.carbohydrates.sugar * weight) / 100;
+        totalSaltOfIngredients += (nutrientData.salt * weight) / 100;
       }
     });
 
     if (!finalWeight) {
-      finalWeight = totalWeight - (DEFAULT_LOSS * totalWeight) / 100;
+      finalWeight = totalWeightOfIngredients - (DEFAULT_LOSS * totalWeightOfIngredients) / 100;
       console.log(
         `Final weight was not provided. Calculating with ${DEFAULT_LOSS}% loss.`,
       );
     }
 
-    console.log(`Total weight of all ingredients: ${totalWeight}g`);
+    console.log(`Total weight of all ingredients: ${totalWeightOfIngredients}g`);
 
     if (finalWeight) {
       console.log(`Final weight of the cooked meal: ${finalWeight}g`);
-      const loss = totalWeight - finalWeight;
-      const lossPercentage = (loss / totalWeight) * 100;
+      const loss = totalWeightOfIngredients - finalWeight;
+      const lossPercentage = (loss / totalWeightOfIngredients) * 100;
       console.log(
         `Weight loss during cooking: ${loss.toFixed(2)}g (${lossPercentage.toFixed(2)}%)`,
       );
     }
     console.log(`---`);
-
-    ingredients.forEach(({ code, weight }) => {
-      const percentage = ((weight / totalWeight) * 100).toFixed(2);
-      console.log(
-        `Ingredient of ${
-          db[code][0]
-        } contributed ${weight}g, which is ${percentage}% of the total.`,
-      );
+    
+    logNutritionTable({
+      db,
+      ingredients,
+      totalWeightOfIngredients,
     });
 
-    if (finalWeight && finalWeight > totalWeight) {
+    if (finalWeight && finalWeight > totalWeightOfIngredients) {
       throw new Error(
         "The total weight of the ingredients cannot be greater than the final weight!",
       );
     }
 
     const macroPer100gRaw: MacroNutrient = {
-      energy: roundToTwoDecimals(totalEnergy / (totalWeight / 100)),
-      protein: roundToTwoDecimals(totalProtein / (totalWeight / 100)),
+      energy: roundToTwoDecimals(totalEnergyOfIngredients / (totalWeightOfIngredients / 100)),
+      protein: roundToTwoDecimals(totalProteinOfIngredients / (totalWeightOfIngredients / 100)),
       fats: {
-        total: roundToTwoDecimals(totalFat / (totalWeight / 100)),
-        saturated: roundToTwoDecimals(totalSaturatedFat / (totalWeight / 100)),
+        total: roundToTwoDecimals(totalFatOfIngredients / (totalWeightOfIngredients / 100)),
+        saturated: roundToTwoDecimals(totalSaturatedFatOfIngredients / (totalWeightOfIngredients / 100)),
       },
       carbohydrates: {
-        total: roundToTwoDecimals(totalCarbohydrate / (totalWeight / 100)),
-        sugar: roundToTwoDecimals(totalSugar / (totalWeight / 100)),
+        total: roundToTwoDecimals(totalCarbohydrateOfIngredients / (totalWeightOfIngredients / 100)),
+        sugar: roundToTwoDecimals(totalSugarOfIngredients / (totalWeightOfIngredients / 100)),
       },
-      salt: roundToTwoDecimals(totalSalt / (totalWeight / 100)),
+      salt: roundToTwoDecimals(totalSaltOfIngredients / (totalWeightOfIngredients / 100)),
     };
 
     const calculatedCalories = calculateCalories({
@@ -153,19 +149,19 @@ export class Macro {
     }
 
     const macroPer100gCooked: MacroNutrient = {
-      energy: roundToTwoDecimals((totalEnergy / finalWeight) * 100),
-      protein: roundToTwoDecimals((totalProtein / finalWeight) * 100),
+      energy: roundToTwoDecimals((totalEnergyOfIngredients / finalWeight) * 100),
+      protein: roundToTwoDecimals((totalProteinOfIngredients / finalWeight) * 100),
       fats: {
-        total: roundToTwoDecimals((totalFat / finalWeight) * 100),
+        total: roundToTwoDecimals((totalFatOfIngredients / finalWeight) * 100),
         saturated: roundToTwoDecimals(
-          (totalSaturatedFat / finalWeight) * 100,
+          (totalSaturatedFatOfIngredients / finalWeight) * 100,
         ),
       },
       carbohydrates: {
-        total: roundToTwoDecimals((totalCarbohydrate / finalWeight) * 100),
-        sugar: roundToTwoDecimals((totalSugar / finalWeight) * 100),
+        total: roundToTwoDecimals((totalCarbohydrateOfIngredients / finalWeight) * 100),
+        sugar: roundToTwoDecimals((totalSugarOfIngredients / finalWeight) * 100),
       },
-      salt: roundToTwoDecimals((totalSalt / finalWeight) * 100),
+      salt: roundToTwoDecimals((totalSaltOfIngredients / finalWeight) * 100),
     };
 
     return {
