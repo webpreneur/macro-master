@@ -1,6 +1,7 @@
 import { FoodSearchCriteria } from "../schemas/food-search-criteria.ts";
 import { SearchResult } from "../schemas/search-result.ts";
-import config from "../../../../config.ts";
+
+import config from "../../../config.ts";
 
 const postFoodsSearch = async (payload: Partial<FoodSearchCriteria>): Promise<SearchResult> => {
   const API_ENDPOINT = "https://api.nal.usda.gov/fdc/v1/foods/search";
