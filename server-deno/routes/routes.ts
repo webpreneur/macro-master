@@ -4,9 +4,9 @@ import { Macro } from "../app.ts";
 import db from "../db.ts";
 import { searchFood } from "../src/apis/macro-master/macro-master.api.ts";
 import { MacroNutrientInput } from "../types.ts";
-import { FoodSearchCriteria } from "../src/apis/usda/schemas/food-search-criteria.ts";
-import postFoodsSearch from "../src/apis/usda/api/post-foods-search.ts";
-import { SearchResult } from "../src/apis/usda/schemas/search-result.ts";
+import postFoodsSearch from "../integrations/usda/api/post-foods-search.ts";
+import { FoodSearchCriteria } from "../integrations/usda/schemas/food-search-criteria.ts";
+import { SearchResult } from "../integrations/usda/schemas/search-result.ts";
 
 const router = new Router();
 
