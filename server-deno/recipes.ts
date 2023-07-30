@@ -14,7 +14,7 @@ console.table(
       { code: 1, weight: 960 },
     ],
     finalWeight: 2735,
-  })
+  }),
 );
 
 console.log("Salika");
@@ -27,7 +27,7 @@ console.table(
       { code: 2, weight: 70 },
     ],
     finalWeight: 148,
-  })
+  }),
 );
 
 console.log("Pénteki ebéd");
@@ -84,7 +84,55 @@ console.table(
       {
         code: 5,
         weight: 515,
-      }
+      },
     ],
-  })
+  }),
+);
+
+console.log("Zöldségkrémleves");
+
+console.table(
+  Macro.getAggregateMacro(
+    {
+      db,
+      ingredients: [
+        // vöröshagyma
+        {
+          code: 4,
+          weight: 132,
+        },
+        // sárgarépa
+        {
+          code: 2,
+          weight: 393,
+        },
+        // karalábé
+        {
+          code: 1,
+          weight: 316,
+        },
+        // burgonya
+        {
+          code: 15,
+          weight: 278,
+        },
+        // karfiol
+        {
+          code: 16,
+          weight: 1400,
+        },
+        // csapvíz
+        {
+          code: 17,
+          weight: 1750,
+        },
+        // étolaj
+        {
+          code: 3,
+          weight: 10,
+        },
+      ],
+      finalWeight: 3665,
+    },
+  ),
 );
