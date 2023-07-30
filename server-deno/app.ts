@@ -1,16 +1,13 @@
 import logNutritionTable from "./macro-calculator/log-nutrition-table.ts";
-import calculateCalories from "./src/apis/usda/utils/get-label-nutrients.ts";
 import {
   EncodedMacroNutrients,
   MacroNutrient,
   MacroNutrientInput,
 } from "./types.ts";
+import calculateCalories from "./integrations/usda/utils/get-label-nutrients.ts";
+import roundToDecimals from "./utils/number/round-to-decimals.ts";
 
 const DEFAULT_LOSS = 20;
-
-
-const roundToTwoDecimals = (value: number): number =>
-  parseFloat(value.toFixed(2));
 
 export class Macro {
   public static getMacro({
@@ -31,7 +28,6 @@ export class Macro {
 
     return {
       energy: (nutrientData.energy * weight) / 100,
-      protein: (nutrientData.protein * weight) / 100,
       fats: {
         total: (nutrientData.fats.total * weight) / 100,
         saturated: (nutrientData.fats.saturated * weight) / 100,
@@ -40,6 +36,7 @@ export class Macro {
         total: (nutrientData.carbohydrates.total * weight) / 100,
         sugar: (nutrientData.carbohydrates.sugar * weight) / 100,
       },
+      protein: (nutrientData.protein * weight) / 100,
       salt: (nutrientData.salt * weight) / 100,
     };
   }
@@ -59,11 +56,11 @@ export class Macro {
 
     let totalWeightOfIngredients = 0;
     let totalEnergyOfIngredients = 0;
-    let totalProteinOfIngredients = 0;
     let totalFatOfIngredients = 0;
     let totalSaturatedFatOfIngredients = 0;
     let totalCarbohydrateOfIngredients = 0;
     let totalSugarOfIngredients = 0;
+    let totalProteinOfIngredients = 0;
     let totalSaltOfIngredients = 0;
 
     ingredients.forEach(({ code, weight }) => {
@@ -73,11 +70,11 @@ export class Macro {
 
         totalWeightOfIngredients += weight;
         totalEnergyOfIngredients += (nutrientData.energy * weight) / 100;
-        totalProteinOfIngredients += (nutrientData.protein * weight) / 100;
         totalFatOfIngredients += (nutrientData.fats.total * weight) / 100;
         totalSaturatedFatOfIngredients += (nutrientData.fats.saturated * weight) / 100;
         totalCarbohydrateOfIngredients += (nutrientData.carbohydrates.total * weight) / 100;
         totalSugarOfIngredients += (nutrientData.carbohydrates.sugar * weight) / 100;
+        totalProteinOfIngredients += (nutrientData.protein * weight) / 100;
         totalSaltOfIngredients += (nutrientData.salt * weight) / 100;
       }
     });
@@ -114,23 +111,23 @@ export class Macro {
     }
 
     const macroPer100gRaw: MacroNutrient = {
-      energy: roundToTwoDecimals(totalEnergyOfIngredients / (totalWeightOfIngredients / 100)),
-      protein: roundToTwoDecimals(totalProteinOfIngredients / (totalWeightOfIngredients / 100)),
+      energy: roundToDecimals(totalEnergyOfIngredients / (totalWeightOfIngredients / 100), 0),
       fats: {
-        total: roundToTwoDecimals(totalFatOfIngredients / (totalWeightOfIngredients / 100)),
-        saturated: roundToTwoDecimals(totalSaturatedFatOfIngredients / (totalWeightOfIngredients / 100)),
+        total: roundToDecimals(totalFatOfIngredients / (totalWeightOfIngredients / 100)),
+        saturated: roundToDecimals(totalSaturatedFatOfIngredients / (totalWeightOfIngredients / 100)),
       },
       carbohydrates: {
-        total: roundToTwoDecimals(totalCarbohydrateOfIngredients / (totalWeightOfIngredients / 100)),
-        sugar: roundToTwoDecimals(totalSugarOfIngredients / (totalWeightOfIngredients / 100)),
+        total: roundToDecimals(totalCarbohydrateOfIngredients / (totalWeightOfIngredients / 100)),
+        sugar: roundToDecimals(totalSugarOfIngredients / (totalWeightOfIngredients / 100)),
       },
-      salt: roundToTwoDecimals(totalSaltOfIngredients / (totalWeightOfIngredients / 100)),
+      protein: roundToDecimals(totalProteinOfIngredients / (totalWeightOfIngredients / 100)),
+      salt: roundToDecimals(totalSaltOfIngredients / (totalWeightOfIngredients / 100)),
     };
 
     const calculatedCalories = calculateCalories({
       carbs: macroPer100gRaw.carbohydrates.total,
-      protein: macroPer100gRaw.protein,
       fat: macroPer100gRaw.fats.total,
+      protein: macroPer100gRaw.protein,
     });
 
     const tolerance = 0.10 * macroPer100gRaw.energy;
@@ -149,19 +146,19 @@ export class Macro {
     }
 
     const macroPer100gCooked: MacroNutrient = {
-      energy: roundToTwoDecimals((totalEnergyOfIngredients / finalWeight) * 100),
-      protein: roundToTwoDecimals((totalProteinOfIngredients / finalWeight) * 100),
+      energy: roundToDecimals(((totalEnergyOfIngredients / finalWeight) * 100), 0),
       fats: {
-        total: roundToTwoDecimals((totalFatOfIngredients / finalWeight) * 100),
-        saturated: roundToTwoDecimals(
+        total: roundToDecimals((totalFatOfIngredients / finalWeight) * 100),
+        saturated: roundToDecimals(
           (totalSaturatedFatOfIngredients / finalWeight) * 100,
         ),
       },
       carbohydrates: {
-        total: roundToTwoDecimals((totalCarbohydrateOfIngredients / finalWeight) * 100),
-        sugar: roundToTwoDecimals((totalSugarOfIngredients / finalWeight) * 100),
+        total: roundToDecimals((totalCarbohydrateOfIngredients / finalWeight) * 100),
+        sugar: roundToDecimals((totalSugarOfIngredients / finalWeight) * 100),
       },
-      salt: roundToTwoDecimals((totalSaltOfIngredients / finalWeight) * 100),
+      protein: roundToDecimals((totalProteinOfIngredients / finalWeight) * 100),
+      salt: roundToDecimals((totalSaltOfIngredients / finalWeight) * 100),
     };
 
     return {

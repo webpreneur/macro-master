@@ -7,8 +7,8 @@ import { EncodedMacroNutrients, MacroNutrientInput } from "../types.ts";
 type TableDataEntry = {
   Ingredient: string;
   "Energy (kcal/100g)": string;
-  Contribution: string;
-  Percentage: string;
+  "Contribution (g)": string;
+  "Contribution (%)": string;
 };
 
 type NutritionTableInput = {
@@ -34,8 +34,8 @@ function logNutritionTable(input: NutritionTableInput): void {
     tableData.push({
       Ingredient: db[code][0],
       "Energy (kcal/100g)": `${nutrient[1].energy} kcal`,
-      Contribution: `${weight}g`,
-      Percentage: `${percentage}%`,
+      "Contribution (g)": `${weight} g`,
+      "Contribution (%)": `${percentage} %`,
     });
   });
 
