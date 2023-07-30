@@ -1,12 +1,11 @@
-import { Router, send } from "https://deno.land/x/oak@v12.6.0/mod.ts";
+import { Router } from "https://deno.land/x/oak@v12.6.0/mod.ts";
 
 import { Macro } from "../app.ts";
 import db from "../db.ts";
 import { searchFood } from "../src/apis/macro-master/macro-master.api.ts";
 import { MacroNutrientInput } from "../types.ts";
-import postFoodsSearch from "../integrations/usda/api/post-foods-search.ts";
-import { FoodSearchCriteria } from "../integrations/usda/schemas/food-search-criteria.ts";
-import { SearchResult } from "../integrations/usda/schemas/search-result.ts";
+import googleTranslate from "./controllers/google-cloud/translate/translate-controller.ts";
+import { usdaSearchFoodGet, usdaSearchFoodPost } from "./controllers/usda/usda-controller-foods-search.ts";
 
 const router = new Router();
 
@@ -19,16 +18,9 @@ router
     context.response.type = "application/json"; // Válasz MIME típusának beállítása
     context.response.body = db;
   })
-  .post("/api/usda/foods/search", async (context) => {
-    const body = await context.request.body();
-
-    if (body.type === "json") {
-      const requestBody = await body.value as Partial<FoodSearchCriteria>;
-      const responseBody: SearchResult = await postFoodsSearch(requestBody);
-
-      context.response.body = responseBody;
-    }
-  })
+  .get("/api/usda/foods/search", usdaSearchFoodGet)  
+  .post("/api/usda/foods/search", usdaSearchFoodPost)
+  .get("/api/google/translate", googleTranslate)
   .get("/food/:query", searchFood)
   .post("/calculate", async (context) => {
     const body = await context.request.body();
