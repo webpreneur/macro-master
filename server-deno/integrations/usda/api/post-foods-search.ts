@@ -2,6 +2,7 @@ import { FoodSearchCriteria } from "../schemas/food-search-criteria.ts";
 import { SearchResult } from "../schemas/search-result.ts";
 
 import config from "../../../config.ts";
+import { DATA_TYPE_ENUM } from "../schemas/data-type.ts";
 
 const { USDA_API_KEY: API_KEY } = config;
 
@@ -15,8 +16,8 @@ const postFoodsSearch = async (payload: Partial<FoodSearchCriteria>): Promise<Se
   if (payload.requireAllWords === undefined) {
     payload.requireAllWords = true;
   }
-  if (payload.dataType === undefined) {
-    payload.dataType = ["Foundation"];
+  if (!payload.dataType) {
+    payload.dataType = [DATA_TYPE_ENUM.FOUNDATION];
   }
 
   const response = await fetch(API_ENDPOINT + `?api_key=${API_KEY}`, {
