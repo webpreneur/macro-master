@@ -1,6 +1,5 @@
+import { DATA_TYPE_ENUM } from "./schemas/data-type.ts";
 import { SortBy } from "./schemas/sort-by.ts";
-
-type DataType = "Branded" | "Foundation" | "Survey (FNDDS)" | "SR Legacy";
 
 type SortOrder = "asc" | "desc";
 
@@ -10,7 +9,7 @@ export interface QueryParameters {
    * Available values: Branded, Foundation, Survey (FNDDS), SR Legacy
    * Example: ["Foundation", "SR Legacy"]
    */
-  dataType?: DataType[];
+  dataType?: DATA_TYPE_ENUM[];
 
   /** 
    * Optional. Maximum number of results to return for the current page.

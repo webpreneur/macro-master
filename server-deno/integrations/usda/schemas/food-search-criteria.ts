@@ -1,4 +1,4 @@
-import { DataType } from "./data-type.ts";
+import { DATA_TYPE_ENUM } from "./data-type.ts";
 import { SortBy } from "./sort-by.ts";
 
 export interface FoodSearchCriteria {
@@ -9,7 +9,7 @@ export interface FoodSearchCriteria {
   /** Optional. Filter on a specific data type; specify one or more values in an array.
    * Example: ['Foundation', 'SR Legacy']
    */
-  dataType: DataType[];
+  dataType: DATA_TYPE_ENUM[];
   /** Optional. Maximum number of results to return for the current page. Default is 50.
    * Example: 25
    */

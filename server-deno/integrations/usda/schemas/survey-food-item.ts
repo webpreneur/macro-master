@@ -1,4 +1,4 @@
-import { DataType } from "./data-type.ts";
+import { DATA_TYPE_ENUM } from "./data-type.ts";
 import { FoodAttribute } from "./food-attribute.ts";
 import { FoodPortion } from "./food-portion.ts";
 import { InputFoodSurvey } from "./input-food-survey.ts";
@@ -12,7 +12,7 @@ export interface SurveyFoodItem {
   /**
    * Example: Survey (FNDDS)
    */
-  datatype: DataType;
+  datatype: DATA_TYPE_ENUM;
   /**
    * Example: Beef curry
    */

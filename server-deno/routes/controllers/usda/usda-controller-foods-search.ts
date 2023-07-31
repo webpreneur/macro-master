@@ -1,5 +1,5 @@
 import postFoodsSearch from "../../../integrations/usda/api/post-foods-search.ts";
-import { DataType } from "../../../integrations/usda/schemas/data-type.ts";
+import { DATA_TYPE_ENUM } from "../../../integrations/usda/schemas/data-type.ts";
 import { FoodSearchCriteria } from "../../../integrations/usda/schemas/food-search-criteria.ts";
 import { SearchResult } from "../../../integrations/usda/schemas/search-result.ts";
 import { SortBy } from "../../../integrations/usda/schemas/sort-by.ts";
@@ -14,7 +14,7 @@ export const usdaSearchFoodGet = async (context: any) => {
 
   const criteria: Partial<FoodSearchCriteria> = {
     query,
-    dataType: context.request.url.searchParams.getAll("dataType") as DataType[],
+    dataType: context.request.url.searchParams.getAll("dataType") as DATA_TYPE_ENUM[],
     pageSize: Number(context.request.url.searchParams.get("pageSize") || 50),
     pageNumber: Number(context.request.url.searchParams.get("pageNumber") || 1),
     sortBy: context.request.url.searchParams.get("sortBy") as SortBy,

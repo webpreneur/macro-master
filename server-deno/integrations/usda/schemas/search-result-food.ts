@@ -1,5 +1,5 @@
 import { AbridgedFoodNutrient } from "./abridged-food-nutrient.ts";
-import { DataType } from "./data-type.ts";
+import { DATA_TYPE_ENUM } from "./data-type.ts";
 
 export interface SearchResultFood {
   /** Unique ID of the food.
@@ -9,7 +9,7 @@ export interface SearchResultFood {
   /** The type of the food data.
    * Example: Branded
    */
-  dataType: DataType;
+  dataType: DATA_TYPE_ENUM;
   /** The description of the food.
    * Example: BROCCOLI
    */

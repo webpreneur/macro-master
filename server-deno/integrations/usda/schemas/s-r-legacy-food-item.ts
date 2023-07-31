@@ -1,4 +1,4 @@
-import { DataType } from "./data-type.ts";
+import { DATA_TYPE_ENUM } from "./data-type.ts";
 import { FoodCategory } from "./food-category.ts";
 import { FoodNutrient } from "./food-nutrient.ts";
 import { NutrientConversionFactors } from "./nutrient-conversion-factors.ts";
@@ -11,7 +11,7 @@ export interface SRLegacyFoodItem {
   /**
    * Example: SR Legacy
    */
-  dataType: DataType;
+  dataType: DATA_TYPE_ENUM;
   /**
    * Example: Broccoli, raw
    */

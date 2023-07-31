@@ -1,4 +1,4 @@
-import { DataType } from "./schemas/data-type.ts";
+import { DATA_TYPE_ENUM } from "./schemas/data-type.ts";
 import { UnitName } from "./schemas/unit-name.ts";
 
 interface FoodNutrient {
@@ -11,7 +11,7 @@ interface FoodNutrient {
 }
 
 interface FoodResponse {
-  dataType: DataType;
+  dataType: DATA_TYPE_ENUM;
   description: string;
   fdcId: number;
   foodNutrients: FoodNutrient[];

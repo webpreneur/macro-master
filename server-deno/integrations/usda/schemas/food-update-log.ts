@@ -1,4 +1,4 @@
-import { DataType } from "./data-type.ts";
+import { DATA_TYPE_ENUM } from "./data-type.ts";
 import { FoodAttribute } from "./food-attribute.ts";
 
 export interface FoodUpdateLog {
@@ -21,7 +21,7 @@ export interface FoodUpdateLog {
   /**
    * Example: Branded
    */
-  dataType: DataType;
+  dataType: DATA_TYPE_ENUM;
   /**
    * Example: NUT 'N BERRY MIX
    */

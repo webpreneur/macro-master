@@ -1,6 +1,6 @@
 import { FoodUpdateLog } from "./food-update-log.ts";
 import { FoodNutrient } from "./food-nutrient.ts";
-import { DataType } from "./data-type.ts";
+import { DATA_TYPE_ENUM } from "./data-type.ts";
 
 export interface BrandedFoodItem {
   /**
@@ -22,7 +22,7 @@ export interface BrandedFoodItem {
   /**
    * Example: Branded
    */
-  dataType: DataType;
+  dataType: DATA_TYPE_ENUM;
   /**
    * Example: NUT 'N BERRY MIX
    */

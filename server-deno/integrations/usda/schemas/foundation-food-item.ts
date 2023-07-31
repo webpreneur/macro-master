@@ -1,4 +1,4 @@
-import { DataType } from "./data-type.ts";
+import { DATA_TYPE_ENUM } from "./data-type.ts";
 import { FoodCategory } from "./food-category.ts";
 import { FoodComponent } from "./food-component.ts";
 import { FoodNutrient } from "./food-nutrient.ts";
@@ -14,7 +14,7 @@ export interface FoundationFoodItem {
   /**
    * Example: Foundation
    */
-  dataType: DataType;
+  dataType: DATA_TYPE_ENUM;
   /**
    * Example: Strawberries, raw
    */
