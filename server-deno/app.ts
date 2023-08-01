@@ -124,11 +124,11 @@ export class Macro {
       salt: roundToDecimals(totalSaltOfIngredients / (totalWeightOfIngredients / 100)),
     };
 
-    const calculatedCalories = calculateCalories({
+    const calculatedCalories = Number(calculateCalories({
       carbs: macroPer100gRaw.carbohydrates.total,
       fat: macroPer100gRaw.fats.total,
       protein: macroPer100gRaw.protein,
-    });
+    }).toFixed(0));
 
     const tolerance = 0.10 * macroPer100gRaw.energy;
     const lowerBound = macroPer100gRaw.energy - tolerance;
