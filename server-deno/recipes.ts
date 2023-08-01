@@ -37,7 +37,7 @@ console.log("Pénteki ebéd");
 //addig 15%-kos veszteséget veszünk alapul
 
 console.table(
-  Macro.getAggregateMacro({
+  /*   Macro.getAggregateMacro({
     db,
     ingredients: [
       // sárgarépa
@@ -86,13 +86,13 @@ console.table(
         weight: 515,
       },
     ],
-  }),
+  }), */
 );
 
 console.log("Zöldségkrémleves");
 
 console.table(
-  Macro.getAggregateMacro(
+  /*   Macro.getAggregateMacro(
     {
       db,
       ingredients: [
@@ -134,5 +134,65 @@ console.table(
       ],
       finalWeight: 3665,
     },
-  ),
+  ), */
+);
+
+console.log("Hétzöldséges kerti pörkölt");
+
+console.table(
+  Macro.getAggregateMacro({
+    db,
+    ingredients: [
+      // étolaj
+      {
+        weight: 20,
+        code: 3,
+      },
+      // vöröshagyma
+      {
+        weight: 288,
+        code: 4,
+      },
+      // sárgarépa
+      {
+        weight: 388,
+        code: 2,
+      },
+      // karalábé
+      {
+        weight: 293,
+        code: 1,
+      },
+      // lila répa
+      {
+        weight: 306,
+        code: 9,
+      },
+      // borsó
+      {
+        weight: 280,
+        code: 18,
+      },
+      // kukorica
+      {
+        weight: 300,
+        code: 19,
+      },
+      // burgonya
+      {
+        weight: 640,
+        code: 15,
+      },
+      // pomodoro
+      {
+        weight: 500,
+        code: 5,
+      },
+      // miil olasz kemény sajt
+      {
+        weight: 30,
+        code: 12,
+      },
+    ],
+  }),
 );

@@ -243,7 +243,46 @@ const encodedMacroNutrients: EncodedMacroNutrients = {
       cholesterol: 0, // mg/100g
       glycemicIndex: "0", // Glikémiás Index értéke (a víznek nincs glikémiás indexe)
     },
-  ],  
+  ],
+  18: [
+    "Zöldborsó",
+    {
+      energy: 81, // kcal/100g
+      protein: 5.4, // g/100g
+      fats: {
+        total: 0.4,
+        saturated: 0.1,
+        monounsaturated: 0,
+        polyunsaturated: 0.2,
+      },
+      carbohydrates: { total: 8.8, sugar: 5.7 }, // g/100g
+      salt: 0.005, // g/100g (átváltva nátrium értékből)
+      fiber: 5.7, // g/100g
+      sodium: 0.005, // g/100g (átváltva mg-ból)
+      cholesterol: 0, // mg/100g
+      glycemicIndex: "48", // Glikémiás Index értéke
+    },
+  ],
+  19: [
+    "Kukorica",
+    {
+      energy: 86, // kcal/100g
+      protein: 3.2, // g/100g
+      fats: {
+        total: 1.2,
+        saturated: 0.2,
+        monounsaturated: 0.3,
+        polyunsaturated: 0.6,
+      },
+      carbohydrates: { total: 16.3, sugar: 3.2 }, // g/100g
+      salt: 0.015, // g/100g (átváltva nátrium értékből)
+      fiber: 2.7, // g/100g
+      sodium: 0.015, // g/100g (átváltva mg-ból)
+      cholesterol: 0, // mg/100g
+      glycemicIndex: "54", // Glikémiás Index értéke
+    },
+  ],
+  
 };
 
 export default encodedMacroNutrients;
