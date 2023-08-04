@@ -1,0 +1,11 @@
+enum WORKOUT_PROGRAMS {
+    P90X,
+    P90X_PLUS,
+    P90X2,
+    P90X2_DELUXE,
+    P90X3,
+    TWENTY_TWO_MHC,
+    POWER_OF_4,
+}
+
+export default WORKOUT_PROGRAMS;
