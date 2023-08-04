@@ -1,0 +1,22 @@
+{
+    "docs": {
+        // P90X2
+        "p90x2": {
+            "calendar": {
+                "url": "https://res.cloudinary.com/macro-master/image/upload/v1691138609/macro-master/workouts/p90x2/P90X2_calendar.pdf"
+            },
+            "worksheets": {
+                "url": "https://res.cloudinary.com/macro-master/image/upload/v1691138609/macro-master/workouts/p90x2/P90X2_worksheets.pdf"
+            }
+        },
+        // 22 Minute Hard Corps
+        "22mhc": {
+            "calendar": {
+                "url": "https://res.cloudinary.com/macro-master/image/upload/v1691138842/macro-master/workouts/22mhc/calendar.pdf"
+            },
+            "fitTest": {
+                "url": "https://res.cloudinary.com/macro-master/image/upload/v1691138842/macro-master/workouts/22mhc/fit_test.pdf"
+            }
+        }
+    }
+}

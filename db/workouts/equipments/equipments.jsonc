@@ -1,0 +1,184 @@
+{
+    "equipments": [
+        {
+            "equipmentId": 1,
+            "name": {
+                "en": "Barbell",
+                "hu": "Súlyzó"
+            },
+            "images": [],
+            "description": {
+                "en": "A long metal bar used for weightlifting",
+                "hu": "Egy hosszú fém rúd, amelyet súlyemeléshez használnak"
+            }
+        },
+        {
+            "equipmentId": 2,
+            "name": {
+                "en": "Bench",
+                "hu": "Pad"
+            },
+            "images": [],
+            "description": {
+                "en": "A piece of furniture used for sitting and lying during exercises",
+                "hu": "Egy bútordarab, amelyet gyakorlatok során üléshez és fekvéshez használnak"
+            }
+        },
+        {
+            "equipmentId": 3,
+            "name": {
+                "en": "Bodyweight",
+                "hu": "Saját testsúly"
+            },
+            "images": [],
+            "description": {
+                "en": "Using one's own weight to perform resistance exercises",
+                "hu": "Saját testsúlyának használata ellenállási gyakorlatokhoz"
+            }
+        },
+        {
+            "equipmentId": 4,
+            "name": {
+                "en": "Chinup Bar",
+                "hu": "Áthúzó rúd"
+            },
+            "images": [],
+            "description": {
+                "en": "A horizontal bar mounted at a height for performing pull-up exercises.",
+                "hu": "Egy magasságban elhelyezett vízszintes rúd, melyen húzódzkodás gyakorlatokat végezhetünk."
+            }
+        },
+        {
+            "equipmentId": 5,
+            "name": {
+                "en": "Dip Bar",
+                "hu": "Nyújtó rúd"
+            },
+            "images": [],
+            "description": {
+                "en": "Parallel bars used for performing dip exercises to target triceps and chest.",
+                "hu": "Párhuzamos rudak, melyekkel nyújtó gyakorlatokat végezhetünk a tricepsz és mellizmok erősítésére."
+            }
+        },
+        {
+            "equipmentId": 6,
+            "name": {
+                "en": "Dumbbell",
+                "hu": "Kézisúlyzó"
+            },
+            "images": [],
+            "description": {
+                "en": "A short bar with a weight at each end, used typically in pairs for exercise.",
+                "hu": "Egy rövid rúd mindkét végén súllyal, általában párban használják edzéshez."
+            }
+        },
+        {
+            "equipmentId": 7,
+            "name": {
+                "en": "Gym Mat",
+                "hu": "Edzőszőnyeg"
+            },
+            "images": [],
+            "description": {
+                "en": "A cushioned mat used for exercises performed on the ground.",
+                "hu": "Egy párnázott szőnyeg, amelyet a földön végzett gyakorlatokhoz használnak."
+            }
+        },
+        {
+            "equipmentId": 8,
+            "name": {
+                "en": "Jump Rope",
+                "hu": "Ugrálókötél"
+            },
+            "images": [],
+            "description": {
+                "en": "A rope swung around the body while jumping, for cardiovascular exercises.",
+                "hu": "Egy kötél, amit az ugrás közben a test körül lengetnek kardiovaszkuláris gyakorlatokhoz."
+            }
+        },
+        {
+            "equipmentId": 9,
+            "name": {
+                "en": "Kettlebell",
+                "hu": "Kettlebell"
+            },
+            "images": [],
+            "description": {
+                "en": "A cast iron or cast steel ball with a handle attached to the top for strength exercises.",
+                "hu": "Egy vasból vagy acélból készült golyó, amelynek tetején fogantyú található erőgyakorlatokhoz."
+            }
+        },
+        {
+            "equipmentId": 10,
+            "name": {
+                "en": "Medicine Ball",
+                "hu": "Medicine Ball"
+            },
+            "images": [],
+            "description": {
+                "en": "A weighted ball used for exercises to improve strength and coordination.",
+                "hu": "Egy súlyozott labda, amelyet az erő és koordináció javítására használnak gyakorlatok során."
+            }
+        },
+        {
+            "equipmentId": 11,
+            "name": {
+                "en": "Resistance Band (Stretch Band)",
+                "hu": "Ellenálló szalag"
+            },
+            "images": [],
+            "description": {
+                "en": "A band used for resistance training and physical therapy exercises.",
+                "hu": "Egy szalag, amelyet ellenállási tréninghez és fizikoterápiás gyakorlatokhoz használnak."
+            }
+        },
+        {
+            "equipmentId": 12,
+            "name": {
+                "en": "Yoga Block",
+                "hu": "Jógablokk"
+            },
+            "images": [],
+            "description": {
+                "en": "A block used for support and deepening stretches in yoga practices.",
+                "hu": "Egy blokk, amelyet támogatásra és a nyújtás mélyítésére használnak a jóga gyakorlása során."
+            }
+        },
+        {
+            "equipmentId": 13,
+            "name": {
+                "en": "Yoga Mat",
+                "hu": "Jógaszőnyeg"
+            },
+            "images": [],
+            "description": {
+                "en": "A cushioned mat designed for yoga practices providing grip and support.",
+                "hu": "Egy párnázott szőnyeg, amely a jóga gyakorlásához készült, tapadást és támogatást biztosít."
+            }
+        },
+        {
+            "equipmentId": 14,
+            "name": {
+                "en": "Incline Bench",
+                "hu": "Döntött Pad"
+            },
+            "images": [],
+            "description": {
+                "en": "A bench set at an angle, often used for chest and shoulder exercises to target the upper part of the muscles.",
+                "hu": "Egy szöggel beállított pad, amelyet gyakran használnak a mell és váll izmainak felső részének célzott edzésére."
+            }
+        },
+        {
+            "equipmentId": 15,
+            "name": {
+                "en": "Flat Bench",
+                "hu": "Sík Pad"
+            },
+            "images": [],
+            "description": {
+                "en": "A level bench commonly used for various weight lifting exercises, especially bench presses.",
+                "hu": "Egy egyenes pad, amelyet gyakran használnak különféle súlyemelési gyakorlatokhoz, különösen fekvenyomáshoz."
+            }
+        }
+    ]
+}

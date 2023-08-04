@@ -1,0 +1,376 @@
+{
+    "trainingPhases": [
+        // FOUNDATION
+        {
+            "id": 1,
+            "name": "Foundation",
+            "durationWeeks": {
+                "min": 3,
+                "max": 6
+            },
+            "schedules": [
+                // X2 Core
+                {
+                    "day": 1,
+                    "workoutIds": [
+                        2
+                    ]
+                },
+                // Plyocide
+                {
+                    "day": 2,
+                    "workoutIds": [
+                        3
+                    ]
+                },
+                // X2 Recovery and Mobility
+                {
+                    "day": 3,
+                    "workoutIds": [
+                        4
+                    ]
+                },
+                // X2 Total Body & X2 Ab Ripper
+                {
+                    "day": 4,
+                    "workoutIds": [
+                        5,
+                        13
+                    ]
+                },
+                // X2 Yoga
+                {
+                    "day": 5,
+                    "workoutIds": [
+                        6
+                    ]
+                },
+                // X2 Balance and Power
+                {
+                    "day": 6,
+                    "workoutIds": [
+                        7
+                    ]
+                },
+                // Rest or X2 Recovery and Mobility
+                {
+                    "day": 7,
+                    "workoutIds": [
+                        4
+                    ]
+                }
+            ]
+        },
+        // STRENGTH
+        {
+            "id": 2,
+            "name": "Strength",
+            "durationWeeks": {
+                "min": 3,
+                "max": 6
+            },
+            "schedules": [
+                // Chest, Back & Balance
+                {
+                    "day": 1,
+                    "workoutIds": [
+                        8
+                    ],
+                    "notes": [
+                        "V Sculpt & X2 Ab Ripper Switch into Day 1"
+                    ]
+                },
+                // Plyocide
+                {
+                    "day": 2,
+                    "workoutIds": [
+                        3
+                    ]
+                },
+                // Rest or X2 Recovery and Mobility
+                {
+                    "day": 3,
+                    "workoutIds": [
+                        4
+                    ],
+                    "notes": [
+                        "X2 Chest + Shoulders + Tris & X2 Ab Ripper Switch into Day 4"
+                    ]
+                },
+                // X2 Shoulders & Arms & X2 Ab Ripper
+                {
+                    "day": 4,
+                    "workoutIds": [
+                        9,
+                        13
+                    ]
+                },
+                // X2 Yoga
+                {
+                    "day": 5,
+                    "workoutIds": [
+                        6
+                    ]
+                },
+                // X2 Base and Back & X2 Ab Ripper
+                {
+                    "day": 6,
+                    "workoutIds": [
+                        10,
+                        13
+                    ]
+                },
+                // Rest or X2 Recovery and Mobility
+                {
+                    "day": 7,
+                    "workoutIds": [
+                        4
+                    ]
+                }
+            ]
+        },
+        // PERFORMANCE
+        {
+            "id": 3,
+            "name": "Performance",
+            "durationWeeks": {
+                "min": 3,
+                "max": 4
+            },
+            "schedules": [
+                // P.A.P. Upper
+                {
+                    "day": 1,
+                    "workoutIds": [
+                        11
+                    ]
+                },
+                // P.A.P. Lower
+                {
+                    "day": 2,
+                    "workoutIds": [
+                        12
+                    ]
+                },
+                // X2 Yoga
+                {
+                    "day": 3,
+                    "workoutIds": [
+                        6
+                    ]
+                },
+                // Rest or X2 Recovery and Mobility
+                {
+                    "day": 4,
+                    "workoutIds": [
+                        4
+                    ]
+                },
+                // P.A.P. Lower
+                {
+                    "day": 5,
+                    "workoutIds": [
+                        12
+                    ]
+                },
+                // P.A.P. Upper
+                {
+                    "day": 6,
+                    "workoutIds": [
+                        11
+                    ]
+                },
+                // Rest or X2 Recovery and Mobility
+                {
+                    "day": 7,
+                    "workoutIds": [
+                        4
+                    ]
+                }
+            ]
+        },
+        // RECOVERY WEEK,
+        {
+            "id": 4,
+            "name": "Recovery Week",
+            "durationWeeks": {
+                "min": 1,
+                "max": 1,
+                "notes": "To be done whenever you need it"
+            },
+            "schedules": [
+                // X2 Recovery and Mobility
+                {
+                    "day": 1,
+                    "workoutIds": [
+                        4
+                    ]
+                },
+                // X2 Yoga
+                {
+                    "day": 2,
+                    "workoutIds": [
+                        6
+                    ]
+                },
+                // X2 Recovery and Mobility
+                {
+                    "day": 3,
+                    "workoutIds": [
+                        4
+                    ]
+                },
+                // X2 Yoga
+                {
+                    "day": 4,
+                    "workoutIds": [
+                        6
+                    ]
+                },
+                // X2 Recovery and Mobility
+                {
+                    "day": 5,
+                    "workoutIds": [
+                        4
+                    ]
+                },
+                // X2 Yoga
+                {
+                    "day": 6,
+                    "workoutIds": [
+                        6
+                    ]
+                },
+                // Rest or X2 Recovery and Mobility
+                {
+                    "day": 7,
+                    "workoutIds": [
+                        4
+                    ]
+                }
+            ]
+        }
+    ],
+    "workouts": [
+        {
+            "id": 1,
+            "title": "How to Bring It Again",
+            "description": "Introduction to the workouts.",
+            "duration": 60,
+            "worksheet": null
+        },
+        {
+            "id": 2,
+            "title": "X2 Core",
+            "description": "The first workout in the schedule, X2 Core blends plyo moves and core exercises to help you create instability.",
+            "worksheet": [
+                {
+                    "id": 0,
+                    "title": "Warm Up"
+                },
+                {
+                    "id": 1,
+                    "title": {
+                        "en": "Sphinx Plank Crunch",
+                        "hu": "Sphinx Támaszban Hasprés"
+                    },
+                    "description": {
+                        "en": "Get into a plank position with your forearms on the floor. Your body should form a straight line from your shoulders to your ankles. Brace your core by contracting your abs as if you were about to be punched in the gut. Raise your right leg off the floor and bring your right knee toward your right elbow. Return to the starting position and repeat with your left leg. That’s one rep. Alternate until you’ve completed all your reps.",
+                        "hu": "Vegyél fel támasz pozíciót úgy, hogy az alkarjaid a földön vannak. A testednek egyenes vonalat kell képeznie a vállaidtól a bokáidig. Feszítsd meg a törzsed úgy, mintha a hasadba akarnának ütni. Emeld fel a jobb lábad a földről, és húzd a jobb térded a jobb könyököd felé. Térj vissza a kiindulási pozícióba és ismételd meg a bal lábaddal. Ez egy ismétlés. Váltakozz, amíg az összes ismétlést el nem végzed."
+                    }
+                },
+                {
+                    "id": 2,
+                    "title": {
+                        "en": "Warrior 3 Cross Crunch",
+                        "hu": "Harcos 3 Kereszt Hasprés"
+                    },
+                    "description": {
+                        "en": "Stand with your feet hip-width apart and your arms at your sides. Raise your right leg off the floor and extend it behind you. At the same time, raise your arms straight out in front of you so that they’re parallel to the floor. This is the starting position. Brace your core by contracting your abs as if you were about to be punched in the gut. Without changing the bend in your knee, bend your hips and lower your torso until it’s almost parallel to the floor. As you bend over, raise your arms overhead. Pause, and then return to the starting position. That's one rep. Repeat until you've completed all your reps on one side, and then switch legs and repeat.",
+                        "hu": "Állj lábfejed szelességében, karjaid az oldaladnál. Emeld fel a jobb lábad a földről és nyújtsd hátra. Ugyanakkor emeld ki egyenesen a karjaidat magad előtt, úgy, hogy azok párhuzamosak legyenek a talajjal. Ez a kiinduló pozíció. Feszítsd meg a törzsed úgy, mintha a hasadba akarnának ütni. Változatlan térdhajlítás mellett hajlítsd a csípődet és döntsd előre a felsőtested, amíg majdnem párhuzamos lesz a földdel. Ahogy előrehajolsz, emeld fel a karjaidat a fejed felett. Tarts egy pillanatig, majd térj vissza a kiindulási pozícióba. Ez egy ismétlés. Ismételd meg, amíg el nem végezted az összes ismétlést az egyik oldalon, majd váltott lábbal ismételd meg."
+                    }
+                },
+                {
+                    "id": 3,
+                    "title": "Single Leg Walk Out to Sphinx",
+                    "description": "Stand with your feet together and your arms at your sides. Push your hips back, bend your knees, and lower your body as deep as you can into a squat. Place your hands on the floor and kick your legs back so that you’re in a pushup position. Lower your body until your chest nearly touches the floor. Pause, and then quickly push yourself back up and return to the squat position. Stand up quickly. That’s one rep. Repeat until you’ve completed all your reps."
+                },
+                {
+                    "id": 4,
+                    "title": "Half Angel",
+                    "description": "Lie on your right side on the floor with your legs straight and your left leg stacked directly on top of your right leg. Prop your upper body up on your right forearm, which should be directly below your right shoulder. Place your left hand on your left hip. Brace your core by contracting your abs as if you were about to be punched in the gut. Without moving your legs or torso, raise your left arm straight up. Pause, and then return to the starting position. That's one rep. Repeat until you've completed all your reps, and then switch sides and repeat."
+                },
+                {
+                    "id": 5,
+                    "title": "Roller Boat",
+                    "description": "Sit on the floor with your knees bent and your feet flat on the floor. Hold a foam roller vertically in front of your chest with both hands. Lean back so that your torso is at a 45-degree angle to the floor. Brace your core by contracting your abs as if you were about to be punched in the gut. This is the starting position. Without changing the bend in your hips or knees, extend your arms and roll the foam roller straight out in front of you until it’s above your head. Pause, and then reverse the movement to return to the starting position. That's one rep. Repeat until you've completed all your reps."
+                }
+            ]
+        },
+        {
+            "id": 3,
+            "title": "Plyocide",
+            "description": "Jump to new heights with more weight and new moves that go beyond what you did in P90X Plyo!"
+        },
+        {
+            "id": 4,
+            "title": "X2 Recovery and Mobility",
+            "description": "Takes your stretch beyond what you did in Stretch X. You will also use the foam roller!"
+        },
+        {
+            "id": 5,
+            "title": "X2 Total Body",
+            "description": "Brings all the moves together and works your body like never before with One-Armed Bicep Curls in Warrior 3 position. You’ll also love the Plyo Push-Ups on a balance ball."
+        },
+        {
+            "id": 6,
+            "title": "X2 Yoga",
+            "description": "You will love the 65 minutes yoga workout!"
+        },
+        {
+            "id": 7,
+            "title": "Balance & Power",
+            "description": "Combining balance with strength, these unique moves will help you with the other intense moves."
+        },
+        {
+            "id": 8,
+            "title": "Chest, Back & Balance",
+            "description": "Pushups on four medicine balls? That’s right. Get ready."
+        },
+        {
+            "id": 9,
+            "title": "X2 Shoulders & Arms",
+            "description": "Can you do Pike Presses with your feet elevated and your hands on medicine balls? You will by the time your 90-days is up."
+        },
+        {
+            "id": 10,
+            "title": "Base & Back",
+            "description": "Are you ready for Plyometric moves with pull-ups? Blast through sequences that work the two largest muscles for a great workout!"
+        },
+        {
+            "id": 11,
+            "title": "P.A.P. Upper",
+            "description": "Post Activation Potentiation is one of the reasons why P90X2 is like no other workout!"
+        },
+        {
+            "id": 12,
+            "title": "P.A.P. Lower",
+            "description": "Post Activation Potentiation (Lower Body) combines strength moves with explosive moves, both vertically and laterally so that you can get the more performance out of the given exercise."
+        },
+        {
+            "id": 13,
+            "title": "Ab Ripper",
+            "description": "Takes your ab routine to new levels with all new moves. Get ready for a killer core workout."
+        },
+        {
+            "id": 14,
+            "title": "V Sculpt (Deluxe)",
+            "description": "Want to blast your back and biceps and get an amazing pump?"
+        },
+        {
+            "id": 15,
+            "title": "X2 Chest, Shoulders and Triceps (Deluxe)",
+            "description": "Chest, shoulders and triceps."
+        }
+    ]
+}

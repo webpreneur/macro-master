@@ -1,0 +1,156 @@
+{
+    "muscleGroups": [
+        {
+            "groupId": 1,
+            "groupName": {
+                "en": "Chest",
+                "hu": "Mell"
+            }
+        },
+        {
+            "groupId": 2,
+            "groupName": {
+                "en": "Back",
+                "hu": "Hát"
+            }
+        },
+        {
+            "groupId": 3,
+            "groupName": {
+                "en": "Shoulders",
+                "hu": "Váll"
+            }
+        },
+        {
+            "groupId": 4,
+            "groupName": {
+                "en": "Biceps",
+                "hu": "Bicepsz"
+            }
+        },
+        {
+            "groupId": 5,
+            "groupName": {
+                "en": "Triceps",
+                "hu": "Tricepsz"
+            }
+        },
+        {
+            "groupId": 6,
+            "groupName": {
+                "en": "Legs",
+                "hu": "Láb"
+            }
+        },
+        {
+            "groupId": 7,
+            "groupName": {
+                "en": "Abs",
+                "hu": "Has"
+            }
+        },
+        {
+            "groupId": 8,
+            "groupName": {
+                "en": "Core",
+                "hu": "Törzs"
+            }
+        },
+        {
+            "groupId": 9,
+            "groupName": {
+                "en": "Cardio",
+                "hu": "Kardio"
+            }
+        },
+        {
+            "groupId": 10,
+            "groupName": {
+                "en": "Full Body",
+                "hu": "Teljes test"
+            }
+        }
+    ],
+    "muscleSubGroups": [
+        {
+            "subGroupId": 1,
+            "parentGroupId": 1,
+            "subGroupName": {
+                "en": "Upper Chest",
+                "hu": "Felső mell"
+            }
+        },
+        {
+            "subGroupId": 2,
+            "parentGroupId": 1,
+            "subGroupName": {
+                "en": "Lower Chest",
+                "hu": "Alsó mell"
+            }
+        },
+        {
+            "subGroupId": 3,
+            "parentGroupId": 2,
+            "subGroupName": {
+                "en": "Latissimus Dorsi",
+                "hu": "Széles hátizom"
+            }
+        },
+        {
+            "subGroupId": 4,
+            "parentGroupId": 2,
+            "subGroupName": {
+                "en": "Trapezius",
+                "hu": "Trapézizom"
+            }
+        },
+        {
+            "subGroupId": 5,
+            "parentGroupId": 3,
+            "subGroupName": {
+                "en": "Deltoids",
+                "hu": "Deltoid"
+            }
+        },
+        {
+            "subGroupId": 6,
+            "parentGroupId": 6,
+            "subGroupName": {
+                "en": "Quadriceps",
+                "hu": "Négyszögű combizom"
+            }
+        },
+        {
+            "subGroupId": 7,
+            "parentGroupId": 6,
+            "subGroupName": {
+                "en": "Hamstrings",
+                "hu": "Hátsó combizom"
+            }
+        },
+        {
+            "subGroupId": 8,
+            "parentGroupId": 6,
+            "subGroupName": {
+                "en": "Calves",
+                "hu": "Vádli"
+            }
+        },
+        {
+            "subGroupId": 9,
+            "parentGroupId": 7,
+            "subGroupName": {
+                "en": "Obliques",
+                "hu": "Oldalsó hasizom"
+            }
+        },
+        {
+            "subGroupId": 10,
+            "parentGroupId": 8,
+            "subGroupName": {
+                "en": "Lower Back",
+                "hu": "Alsó hát"
+            }
+        }
+    ]
+}

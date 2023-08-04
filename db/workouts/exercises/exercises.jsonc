@@ -1,0 +1,121 @@
+{
+    // ExerciseDTO
+    "exercises": [
+        {
+            "exerciseId": 1,
+            "name": {
+                "en": "Bench Press on Flat Bench",
+                "hu": "Fekvenyomás Egyenes Padon"
+            },
+            "description": {
+                "en": "The bench press on a flat bench is an upper-body weight training exercise in which the trainee presses a weight upwards while lying on a flat weight training bench.",
+                "hu": "A fekvenyomás egyenes padon egy felsőtestet edző súlyzós gyakorlat, amelyben a gyakorló fekve nyomja a súlyt felfelé, miközben egy egyenes edzőpadon fekszik."
+            },
+            "type": "strength",
+            "difficulty": "intermediate",
+            "muscleGroupIds": [
+                1,
+                5,
+                3
+            ],
+            "equipmentIds": [
+                1,
+                2
+            ],
+            "images": [],
+            "videos": [],
+            "links": [],
+            "notes": {
+                "en": "Keep your feet flat on the floor. Don't arch your back. Don't bounce the bar off your chest.",
+                "hu": "Tartsd a lábad laposan a padlón. Ne hajlítsa meg a hátát. Ne ugrasd a rudat a mellkasodról."
+            }
+        },
+        {
+            "exerciseId": 2,
+            "name": {
+                "en": "Incline Dumbbell Press",
+                "hu": "Nyomás Döntött Padon Kézi Súlyzóval"
+            },
+            "description": {
+                "en": "**Incline Dumbbell Press**\n\nThe bench should be set at the middle position, which is about 25 degrees. Studies have shown that an angle of 15-30 degrees is ideal for building the upper chest muscles as opposed to 45 degrees, which targets the shoulder muscles more. I try to tense the chest muscles from below.\n\n**Video Available!**\n\nWith proper execution, relatively heavy weights can be used in this exercise, which is beneficial as working a muscle with heavier weights – ideally between 6-10 repetitions – makes it grow larger.",
+                "hu": "**Nyomás Döntött Padon Kézi Súlyzóval**\n\nA pad középső állásában kell rögzíteni a padot, ez kb. 25 fokos lesz és a kutatások alapján a 15-30 fok az ideális a felső mellizmok építéséhez szemben a 45-tel ami már inkább a vállizmokat terheli. Igyekszem alul megfeszíteni a mellizmot.\n\nEnnél a gyakorlatnál viszonylag nagy súlyt tudunk használni, ami azért jó, mert minél nagyobb súllyal dolgoztatunk meg egy izmot – a megfelelő végrehajtás mellett, legalább 4, de inkább 6-10 ismétléssel –, az annál nagyobbra nő."
+            },
+            "muscleSubGroupIds": [
+                1
+            ],
+            "equipmentIds": [
+                6,
+                14
+            ],
+            "type": "strength",
+            "difficulty": "medium",
+            "notes": {},
+            "images": [
+                "https://cdn-0.weighttraining.guide/wp-content/uploads/2017/07/Incline-reverse-grip-dumbbell-bench-press-resized.png"
+            ],
+            "videos": [
+                "https://youtu.be/p9QYh_EWoxA"
+            ],
+            "links": [
+                "https://biotechusa.hu/edzesterv/top-10-mellizom-gyakorlat/"
+            ]
+        },
+        {
+            "exerciseId": 3,
+            "name": {
+                "en": "Dumbbell Fly on Flat Bench",
+                "hu": "Tárogatás Kézisúlyzóval Vízszintes Padon"
+            },
+            "description": {
+                "en": "**Dumbbell Fly on Flat Bench**\n\nThis exercise is usually performed after heavy, compound exercises such as bench press or incline bench presses. Many consider dumbbell flyes as the ideal “finishing” exercise after the more intense pressing movements. \n\n**Tip:** Attach a stretch band between the two dumbbells to keep the chest muscles engaged even at the top of the movement.",
+                "hu": "**Tárogatás Kézisúlyzóval Vízszintes Padon**\n\nÁltalában olyan nehéz, összetett gyakorlatok után szoktak végezni, mint a fekvenyomás, vagy a ferdepados nyomások. Sokan tekintenek a tárogatásra a nagyobb terheléssel végzett nyomó gyakorlatokat követő, ideális „befejező” gyakorlatként. \n\n**Tipp:** Tegyünk stretch bandet a két dumbbell közé, hogy a felső holtponton is terhelés alatt legyen a mellizom."
+            },
+            "muscleGroupIds": [
+                1
+            ],
+            "muscleSubGroupIds": [
+                1
+            ],
+            "equipment": [
+                6,
+                15,
+                11
+            ],
+            "type": "strength",
+            "difficulty": "medium",
+            "notes": {},
+            "images": [
+                "https://www.bodybuildingmealplan.com/wp-content/uploads/Dumbbell-Fly-Muscles-Worked-Image-scaled.jpg"
+            ],
+            "videos": [],
+            "links": [
+                "https://www.myprotein.hu/blog/edzes/tarogatas-kezisulyzoval-tippek-trukkok-es-elonyok/"
+            ]
+        },
+        {
+            "exerciseId": 4,
+            "name": {
+                "en": "Dips for Chest",
+                "hu": "Mellre Tolódzkodás (Dip)"
+            },
+            "description": {
+                "en": "**Dips for Chest**\n\nA highly beneficial exercise targeting the chest muscles. Here's a very useful video demonstrating the proper technique.",
+                "hu": "**Mellre Tolódzkodás (Dip)**\n\nNagyon hasznos gyakorlat a mellizmok célzásához. Itt van egy nagyon hasznos videó a helyes technika bemutatásával."
+            },
+            "muscleGroupIds": [
+                1
+            ],
+            "equipment": [
+                5
+            ],
+            "type": "strength",
+            "difficulty": "medium",
+            "notes": {},
+            "images": [],
+            "videos": [
+                "https://youtu.be/dIvtMZTqfNY"
+            ],
+            "links": []
+        }
+    ]
+}
